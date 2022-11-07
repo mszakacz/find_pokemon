@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'pokemon_searching_result.g.dart';
@@ -5,7 +6,7 @@ part 'pokemon_searching_result.g.dart';
 @JsonSerializable(createToJson: false)
 
 /// Pokemon Searching Result
-class PokemonSearchingResult {
+class PokemonSearchingResult extends Equatable {
   /// const constructor of the PokemonSearchingResult model
   const PokemonSearchingResult({
     required this.name,
@@ -21,4 +22,10 @@ class PokemonSearchingResult {
 
   /// url to pokemon data [String]
   final String url;
+
+  @override
+  List<Object> get props => [
+        name,
+        url,
+      ];
 }
