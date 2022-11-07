@@ -22,7 +22,7 @@ class ApiClient {
 
   static const String _apiBaseUrl = 'pokeapi.co';
 
-  static const String _method = '/api/v2/pokemon/';
+  static const String _method = '/api/v2/pokemon';
 
   final _headers = {
     'Accept': 'application/json',
@@ -31,14 +31,9 @@ class ApiClient {
 
   /// get pokemon [PokemonData] by name
   Future<PokemonData> getPokemon({required String pokemonName}) async {
-    // final queryParameters = {
-    //   'name': pokemonName,
-    // };
-
     final uri = Uri.http(
       _apiBaseUrl,
-      _method + pokemonName,
-      // queryParameters,
+      '$_method/$pokemonName',
     );
 
     try {
@@ -73,7 +68,7 @@ class ApiClient {
 
     final uri = Uri.http(
       _apiBaseUrl,
-      '/api/v2/pokemon',
+      _method,
       queryParameters,
     );
 
