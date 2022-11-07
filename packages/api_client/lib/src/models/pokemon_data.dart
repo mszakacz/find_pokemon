@@ -1,4 +1,5 @@
 import 'package:api_client/api_client.dart';
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'pokemon_data.g.dart';
@@ -6,7 +7,7 @@ part 'pokemon_data.g.dart';
 @JsonSerializable(createToJson: false)
 
 /// Pokemon Data
-class PokemonData {
+class PokemonData extends Equatable {
   /// const constructor of the PokemonData model
   const PokemonData({
     required this.id,
@@ -38,4 +39,16 @@ class PokemonData {
 
   /// The height of this Pokémon in decimetres
   final int height;
+
+  @override
+  List<Object> get props {
+    return [
+      id,
+      name,
+      sprites,
+      stats,
+      weight,
+      height,
+    ];
+  }
 }
