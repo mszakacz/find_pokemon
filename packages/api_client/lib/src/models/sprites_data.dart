@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'sprites_data.g.dart';
@@ -5,7 +6,7 @@ part 'sprites_data.g.dart';
 @JsonSerializable(createToJson: false)
 
 /// Sprites Data
-class SpritesData {
+class SpritesData extends Equatable {
   /// const constructor of the Pokemon SpritesData model
   const SpritesData({
     required this.backDefault,
@@ -53,4 +54,18 @@ class SpritesData {
   /// front shiny female sprite [String] as url to png
   @JsonKey(name: 'front_shiny_female')
   final String? frontShinyFemale;
+
+  @override
+  List<Object> get props {
+    return [
+      backDefault ?? '',
+      backFemale ?? '',
+      backShiny ?? '',
+      backShinyFemale ?? '',
+      frontDefault ?? '',
+      frontFemale ?? '',
+      frontShiny ?? '',
+      frontShinyFemale ?? '',
+    ];
+  }
 }
