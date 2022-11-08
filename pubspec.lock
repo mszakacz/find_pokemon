@@ -289,6 +289,13 @@ packages:
       relative: true
     source: path
     version: "1.0.0+1"
+  pokemons_repository:
+    dependency: "direct main"
+    description:
+      path: "packages/pokemons_repository"
+      relative: true
+    source: path
+    version: "1.0.0+1"
   pool:
     dependency: transitive
     description:
