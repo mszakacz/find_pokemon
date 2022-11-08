@@ -3,14 +3,17 @@ import 'dart:convert';
 import 'package:api_client/api_client.dart';
 import 'package:http/http.dart' as http;
 
-/// Exception thrown when getPokemon method fails.
-class GetPokemonFailure implements Exception {}
+/// Exception thrown when getPokemon request fails.
+class GetPokemonRequestFailure implements Exception {}
 
-/// Exception thrown when getPokemonsByPhrase method fails.
-class GetPokemonsByPhraseFailure implements Exception {}
+/// Exception thrown when searchPokemons request fails.
+class SearchPokemonsRequestFailure implements Exception {}
 
 /// Exception thrown when PokemonData from json fails.
 class PokemonDeserializationFailure implements Exception {}
+
+/// Exception thrown when PokemonSearchingResult from json fails.
+class PokemonSearchingResultDeserializationFailure implements Exception {}
 
 /// Api CLient
 class ApiClient {
@@ -24,82 +27,88 @@ class ApiClient {
 
   static const String _method = '/api/v2/pokemon';
 
-  final _headers = {
-    'Accept': 'application/json',
-    'Content-type': 'application/json',
-  };
-
   /// get pokemon [PokemonData] by name
   Future<PokemonData> getPokemon({required String pokemonName}) async {
-    final uri = Uri.http(
+    final uri = Uri.https(
       _apiBaseUrl,
       '$_method/$pokemonName',
     );
 
-    try {
-      final response = await _httpClient.get(
-        uri,
-        headers: _headers,
-      );
+    final response = await _httpClient.get(
+      uri,
+    );
 
+    if (response.statusCode != 200) {
+      throw GetPokemonRequestFailure();
+    }
+
+    try {
       final dynamic json = jsonDecode(response.body);
 
-      try {
-        final pokemon = PokemonData.fromJson(json as Map<String, dynamic>);
-        return pokemon;
-      } catch (_) {
-        throw PokemonDeserializationFailure();
-      }
+      return PokemonData.fromJson(json as Map<String, dynamic>);
     } catch (_) {
-      throw GetPokemonFailure();
+      throw PokemonDeserializationFailure();
     }
   }
 
   /// get list of pokemons which name matching given phrase
-  Future<List<PokemonData>> getPokemonsByPhrase({
+  Future<List<String>> searchPokemons({
     required String phrase,
   }) async {
-    const suggestionsLimit = 10;
-
     final queryParameters = {
       'limit': '100000',
       'offset': '0',
     };
 
-    final uri = Uri.http(
+    final uri = Uri.https(
       _apiBaseUrl,
       _method,
       queryParameters,
     );
 
+    final response = await _httpClient.get(
+      uri,
+    );
+
+    if (response.statusCode != 200) {
+      throw SearchPokemonsRequestFailure();
+    }
+
+    final results = <PokemonSearchingResult>[];
+
     try {
-      final response = await _httpClient.get(
-        uri,
-        headers: _headers,
-      );
-
-      final pokemons = <PokemonData>[];
-
       final dynamic jsonList =
           (jsonDecode(response.body) as Map<String, dynamic>)['results'];
 
       for (final json in jsonList) {
-        final searchingResult =
-            PokemonSearchingResult.fromJson(json as Map<String, dynamic>);
-        final pokemonName = searchingResult.name;
-        if (pokemonName.contains(phrase)) {
-          final pokemon = await getPokemon(
-            pokemonName: pokemonName,
-          );
-          pokemons.add(pokemon);
-          if (pokemons.length > suggestionsLimit) {
-            break;
-          }
-        }
+        final result = PokemonSearchingResult.fromJson(
+          json as Map<String, dynamic>,
+        );
+        results.add(result);
       }
-      return pokemons;
+
+      return _filterResults(
+        results: results,
+        phrase: phrase,
+      );
     } catch (_) {
-      throw GetPokemonsByPhraseFailure();
+      throw PokemonSearchingResultDeserializationFailure();
     }
+  }
+
+  List<String> _filterResults({
+    required List<PokemonSearchingResult> results,
+    required String phrase,
+  }) {
+    final matchingNames = <String>[];
+
+    for (final result in results) {
+      final name = result.name;
+      if (name.contains(phrase)) {
+        matchingNames.add(name);
+      }
+    }
+
+    return matchingNames;
   }
 }
