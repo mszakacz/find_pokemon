@@ -1,0 +1,11 @@
+{
+    "@@locale": "pl",
+    "searching": "Szukaj",
+    "@searching": {
+        "description": "Searching"
+    },
+    "favorites": "Ulubione",
+    "@favorites": {
+        "description": "Favorites"
+    }
+}
