@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:api_client/api_client.dart';
 import 'package:http/http.dart' as http;
+import 'package:pokemons_api/pokemons_api.dart';
 
 /// Exception thrown when getPokemon request fails.
 class GetPokemonRequestFailure implements Exception {}
@@ -15,10 +15,10 @@ class PokemonDeserializationFailure implements Exception {}
 /// Exception thrown when PokemonSearchingResult from json fails.
 class PokemonSearchingResultDeserializationFailure implements Exception {}
 
-/// Api CLient
-class ApiClient {
-  /// {@macro location_api_client}
-  ApiClient({http.Client? httpClient})
+/// Pokemons Api CLient
+class PokemonsApiClient {
+  /// constructor of the Pokemons Api Client
+  PokemonsApiClient({http.Client? httpClient})
       : _httpClient = httpClient ?? http.Client();
 
   final http.Client _httpClient;

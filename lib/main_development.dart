@@ -1,11 +1,12 @@
-import 'package:api_client/api_client.dart';
 import 'package:pokemon/app/app.dart';
 import 'package:pokemon/bootstrap.dart';
 
-Future<void> main() async {
-  final apiClient = ApiClient();
+import 'package:pokemons_api/pokemons_api.dart';
 
-  final pokemonName = await apiClient.searchPokemons(phrase: 'ditto');
+Future<void> main() async {
+  final pokemonsApiClient = PokemonsApiClient();
+
+  final pokemonName = await pokemonsApiClient.searchPokemons(phrase: 'ditto');
   print('pokemon name: ${pokemonName}');
 
   await bootstrap(

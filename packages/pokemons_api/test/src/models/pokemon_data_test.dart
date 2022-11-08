@@ -1,6 +1,6 @@
 // ignore_for_file: avoid_redundant_argument_values
 
-import 'package:api_client/api_client.dart';
+import 'package:pokemons_api/pokemons_api.dart';
 import 'package:test/test.dart';
 
 void main() {

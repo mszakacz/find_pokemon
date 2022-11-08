@@ -7,8 +7,6 @@ environment:
   sdk: ">=2.17.0 <3.0.0"
 
 dependencies:
-  api_client:
-    path: packages/api_client
   bloc: ^8.0.3
   flutter:
     sdk: flutter
@@ -16,6 +14,8 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: ^0.17.0
+  pokemons_api:
+    path: packages/pokemons_api
 
 dev_dependencies:
   bloc_test: ^9.0.3
