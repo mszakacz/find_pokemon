@@ -3,3 +3,5 @@ decimetres
 pokeapi
 Pokemons
 sublist
+Szukaj
+Ulubione
