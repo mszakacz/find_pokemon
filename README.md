@@ -1,5 +1,10 @@
 # Pokemon
 
+### Functionalities:
+- pokemons searching
+- displaying pokemon pictures, statistics and other details
+- adding pokemon to favorites
+- sorting list of favorites
 
 ### Tools / packages:
 - Flutter
