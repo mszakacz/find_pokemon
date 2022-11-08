@@ -1,8 +1,10 @@
+import 'package:equatable/equatable.dart';
+
 import 'package:pokemons_api/pokemons_api.dart';
 import 'package:pokemons_repository/pokemons_repository.dart';
 
 /// Pokemon model
-class Pokemon {
+class Pokemon extends Equatable {
   /// const constructor of the Pokemon model
   const Pokemon({
     required this.id,
@@ -18,7 +20,7 @@ class Pokemon {
         id: data.id,
         name: data.name,
         pictures: picturesFromSprites(sprites: data.sprites),
-        stats: pokemonsStats(stats: data.stats),
+        stats: pokemonStats(stats: data.stats),
         weight: data.weight,
         height: data.height,
       );
@@ -40,4 +42,16 @@ class Pokemon {
 
   /// The height of this Pokémon in decimetres
   final int height;
+
+  @override
+  List<Object> get props {
+    return [
+      id,
+      name,
+      pictures,
+      stats,
+      weight,
+      height,
+    ];
+  }
 }
