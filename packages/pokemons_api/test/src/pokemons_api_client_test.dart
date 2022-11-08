@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:api_client/api_client.dart';
 import 'package:http/http.dart' as http;
 import 'package:mocktail/mocktail.dart';
+import 'package:pokemons_api/pokemons_api.dart';
 import 'package:test/test.dart';
 
 class MockHttpClient extends Mock implements http.Client {}
@@ -12,7 +12,7 @@ class MockResponse extends Mock implements http.Response {}
 class FakeUri extends Fake implements Uri {}
 
 void main() {
-  group('ApiClient', () {
+  group('PokemonsApiClient', () {
     const pokemonName = 'pokemonName';
 
     const id = 1;
@@ -69,7 +69,7 @@ void main() {
     );
 
     late MockHttpClient mockHttpClient;
-    late ApiClient apiClient;
+    late PokemonsApiClient apiClient;
 
     setUpAll(() {
       registerFallbackValue(FakeUri());
@@ -77,12 +77,12 @@ void main() {
 
     setUp(() {
       mockHttpClient = MockHttpClient();
-      apiClient = ApiClient(httpClient: mockHttpClient);
+      apiClient = PokemonsApiClient(httpClient: mockHttpClient);
     });
 
     group('constructor', () {
       test('does not require an httpClient', () {
-        expect(ApiClient(), isNotNull);
+        expect(PokemonsApiClient(), isNotNull);
       });
     });
 

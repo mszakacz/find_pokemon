@@ -1,6 +1,6 @@
-import 'package:api_client/api_client.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:pokemons_api/pokemons_api.dart';
 
 part 'pokemon_data.g.dart';
 

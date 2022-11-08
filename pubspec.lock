@@ -15,13 +15,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.0"
-  api_client:
-    dependency: "direct main"
-    description:
-      path: "packages/api_client"
-      relative: true
-    source: path
-    version: "1.0.0+1"
   args:
     dependency: transitive
     description:
@@ -289,6 +282,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.2"
+  pokemons_api:
+    dependency: "direct main"
+    description:
+      path: "packages/pokemons_api"
+      relative: true
+    source: path
+    version: "1.0.0+1"
   pool:
     dependency: transitive
     description:
