@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  pokemons_api:
+    path: ../pokemons_api
 
 dev_dependencies:
   flutter_test:
