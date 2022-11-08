@@ -1,13 +1,18 @@
-// Copyright (c) 2022, Very Good Ventures
-// https://verygood.ventures
-//
-// Use of this source code is governed by an MIT-style
-// license that can be found in the LICENSE file or at
-// https://opensource.org/licenses/MIT.
-
 import 'package:pokemon/app/app.dart';
 import 'package:pokemon/bootstrap.dart';
+import 'package:pokemons_api/pokemons_api.dart';
+import 'package:pokemons_repository/pokemons_repository.dart';
 
-void main() {
-  bootstrap(() => const App());
+Future<void> main() async {
+  final pokemonsApiClient = PokemonsApiClient();
+
+  final pokemonsRepository = PokemonsRepository(
+    pokemonsApiClient: pokemonsApiClient,
+  );
+
+  await bootstrap(
+    () => App(
+      pokemonsRepository: pokemonsRepository,
+    ),
+  );
 }
