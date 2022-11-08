@@ -10,10 +10,9 @@ Future<void> main() async {
     pokemonsApiClient: pokemonsApiClient,
   );
 
-  final pokemon = await pokemonsRepository.getPokemon(name: 'ditto');
-  print('pokemon name: ${pokemon.name}');
-
   await bootstrap(
-    () => const App(),
+    () => App(
+      pokemonsRepository: pokemonsRepository,
+    ),
   );
 }
