@@ -1,6 +1,5 @@
 import 'package:pokemons_api/pokemons_api.dart';
 import 'package:pokemons_repository/pokemons_repository.dart';
-import 'package:pokemons_repository/src/service/pokemon_stats.dart';
 
 /// Pokemon model
 class Pokemon {
