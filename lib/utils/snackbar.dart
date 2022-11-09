@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokemon/l10n/l10n.dart';
 import 'package:pokemon/theme/theme.dart';
 
 class Snackbar {
@@ -6,15 +7,19 @@ class Snackbar {
 
   void errorSnackbar({
     required BuildContext context,
-    required String content,
+    String? content,
   }) {
+    final l10n = context.l10n;
+
+    final text = content ?? l10n.sthWentWrong;
+
     ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar()
       ..showSnackBar(
         SnackBar(
           backgroundColor: AppColors.red,
           content: Text(
-            content,
+            text,
             style: Theme.of(context).textTheme.headline5?.copyWith(
                   color: AppColors.black,
                 ),
