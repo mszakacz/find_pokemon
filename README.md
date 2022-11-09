@@ -21,6 +21,7 @@
 - REST API
 - Splash screen and App Logo
 - Saving data in device memory
+- unit tests
 
 
 ### Development info:
