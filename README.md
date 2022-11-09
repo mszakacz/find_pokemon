@@ -1,7 +1,10 @@
 # Find Pokemon
 
 
-<img height="400" alt="Screenshot 2022-11-09 at 17 16 47" src="https://user-images.githubusercontent.com/38291070/200883104-a2407bd9-480a-40cc-b275-b5a27f7413fa.png">.   &nbsp;&nbsp;&nbsp;&nbsp;  <img height="400" alt="Screenshot 2022-11-09 at 14 50 48" src="https://user-images.githubusercontent.com/38291070/200847937-5de4993a-28f9-431f-b6d8-3bb56d54fcf2.png">  &nbsp;&nbsp;&nbsp;&nbsp;   <img height="400" alt="Screenshot 2022-11-09 at 17 07 48" src="https://user-images.githubusercontent.com/38291070/200880959-89a990fd-4895-4844-8c0e-a4ad8406c56b.png">
+
+<img height="400" alt="Screenshot 2022-11-10 at 00 42 39" src="https://user-images.githubusercontent.com/38291070/200965878-065d1838-5675-4a7d-a5d9-debb6db3c7f3.png">     &nbsp;&nbsp;&nbsp;&nbsp;    <img height="400" alt="Screenshot 2022-11-10 at 00 43 07" src="https://user-images.githubusercontent.com/38291070/200965875-208614b9-f898-4e12-a24c-7ed32bef49f0.png">    &nbsp;&nbsp;&nbsp;&nbsp;    <img height="400" alt="Screenshot 2022-11-10 at 00 43 34" src="https://user-images.githubusercontent.com/38291070/200965869-d1dbf54f-6880-46bb-89dc-c36dc81f3978.png">    &nbsp;&nbsp;&nbsp;&nbsp;    <img height="400" alt="Screenshot 2022-11-10 at 00 43 54" src="https://user-images.githubusercontent.com/38291070/200965864-02069647-31ce-4c5f-abd6-0eaf42d27cb7.png">  
+
+
 
 
 ### Functionalities:
