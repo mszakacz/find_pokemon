@@ -20,6 +20,7 @@ dependencies:
     path: packages/pokemons_api
   pokemons_repository:
     path: packages/pokemons_repository
+  shared_preferences: ^2.0.15
 
 dev_dependencies:
   bloc_test: ^9.0.3
