@@ -1,6 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:pokemons_api/pokemons_api.dart';
 import 'package:pokemons_repository/pokemons_repository.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:test/test.dart';
 
 class MockPokemonsApiClient extends Mock implements PokemonsApiClient {}
@@ -10,9 +12,17 @@ class MockPokemonData extends Mock implements PokemonData {}
 class FakePokemon extends Fake implements Pokemon {}
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   group('PokemonsRepository', () {
     late PokemonsApiClient api;
     late PokemonsRepository repository;
+    late SharedPreferences sharedPreferences;
+
+    SharedPreferences.setMockInitialValues(
+      <String, List<String>>{
+        'favorites': <String>[],
+      },
+    );
 
     const id = 1;
     const pokemonName = 'name';
@@ -59,15 +69,18 @@ void main() {
       ),
     ];
 
-    setUp(() {
+    setUp(() async {
       api = MockPokemonsApiClient();
+      sharedPreferences = await SharedPreferences.getInstance();
       repository = PokemonsRepository(
         pokemonsApiClient: api,
+        sharedPreferences: sharedPreferences,
       );
     });
 
     PokemonsRepository createSubject() => PokemonsRepository(
           pokemonsApiClient: api,
+          sharedPreferences: sharedPreferences,
         );
 
     group('constructor', () {
