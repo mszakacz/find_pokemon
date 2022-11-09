@@ -19,6 +19,7 @@
 - Http
 - REST API
 - Splash screen and App Logo
+- Saving data in device memory
 
 
 ### Development info:
