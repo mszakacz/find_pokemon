@@ -11,7 +11,9 @@ class PokemonsRepository {
   final PokemonsApiClient _pokemonsApiClient;
 
   /// returns the list of pokemons names matching given phrase
-  Future<List<String>> searchPokemons({required String phrase}) async {
+  Future<List<String>> searchPokemons({
+    required String phrase,
+  }) async {
     final pokemons = await _pokemonsApiClient.searchPokemons(
       phrase: phrase,
     );
