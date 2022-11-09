@@ -32,7 +32,7 @@ class SearchingInput extends StatelessWidget {
         style: Theme.of(context).textTheme.headline3,
         decoration: InputDecoration(
           filled: true,
-          fillColor: AppColors.heavyDark,
+          fillColor: AppColors.dark,
           contentPadding: const EdgeInsets.all(15),
           prefixIcon: const IconButton(
             icon: Icon(
