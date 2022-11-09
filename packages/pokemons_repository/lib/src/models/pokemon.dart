@@ -37,7 +37,7 @@ class Pokemon extends Equatable {
   /// list of pokemon stats
   final List<Stat> stats;
 
-  /// pokemon weight
+  /// The weight of this Pokémon in hectograms.
   final int weight;
 
   /// The height of this Pokémon in decimetres
@@ -54,4 +54,14 @@ class Pokemon extends Equatable {
       height,
     ];
   }
+
+  /// returns the empty instance of Pokemon
+  static const empty = Pokemon(
+    id: 0,
+    name: '',
+    pictures: <String>[],
+    stats: <Stat>[],
+    weight: 0,
+    height: 0,
+  );
 }
