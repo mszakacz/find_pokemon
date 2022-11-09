@@ -1,6 +1,5 @@
 # Pokemon
-<img width="300" alt="Screenshot 2022-11-09 at 14 51 12" src="https://user-images.githubusercontent.com/38291070/200847866-b95fba3a-da85-4931-b0ed-710642af137e.png">   <img width="300" alt="Screenshot 2022-11-09 at 14 50 48" src="https://user-images.githubusercontent.com/38291070/200847937-5de4993a-28f9-431f-b6d8-3bb56d54fcf2.png">
-
+<img height="400" alt="Screenshot 2022-11-09 at 14 51 12" src="https://user-images.githubusercontent.com/38291070/200847866-b95fba3a-da85-4931-b0ed-710642af137e.png">   &nbsp;&nbsp;&nbsp;&nbsp;  <img height="400" alt="Screenshot 2022-11-09 at 14 50 48" src="https://user-images.githubusercontent.com/38291070/200847937-5de4993a-28f9-431f-b6d8-3bb56d54fcf2.png">  &nbsp;&nbsp;&nbsp;&nbsp;   <img height="400" alt="Screenshot 2022-11-09 at 17 07 48" src="https://user-images.githubusercontent.com/38291070/200880959-89a990fd-4895-4844-8c0e-a4ad8406c56b.png">
 
 
 ### Functionalities:
