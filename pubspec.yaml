@@ -13,6 +13,7 @@ dependencies:
   flutter_bloc: ^8.0.1
   flutter_localizations:
     sdk: flutter
+  flutter_native_splash: ^2.2.14
   intl: ^0.17.0
   pokemons_api:
     path: packages/pokemons_api
@@ -29,3 +30,16 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   generate: true
+  assets:
+    - assets/images/
+
+flutter_native_splash:
+  color: "#000000"
+  image: assets/images/pokemon.png
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: assets/images/pokemon.png
+  background_color: "#000000"
+  min_sdk_android: 21
