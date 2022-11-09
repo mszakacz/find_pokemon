@@ -51,7 +51,9 @@ class AppTheme {
           fontSize: 12,
         ),
       ),
-      appBarTheme: const AppBarTheme(backgroundColor: AppColors.darkScaffold),
+      appBarTheme: const AppBarTheme(
+        backgroundColor: AppColors.darkScaffold,
+      ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: AppColors.heavyDark,
       ),
