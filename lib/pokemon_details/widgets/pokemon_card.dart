@@ -1,8 +1,9 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:pokemon/l10n/l10n.dart';
+import 'package:pokemon/pokemon_images/pokemon_images.dart';
 import 'package:pokemon/theme/app_colors.dart';
 import 'package:pokemon/utils/utils.dart';
+import 'package:pokemon/widgets/widgets.dart';
 import 'package:pokemons_repository/pokemons_repository.dart';
 
 class PokemonCard extends StatelessWidget {
@@ -21,7 +22,7 @@ class PokemonCard extends StatelessWidget {
           const SizedBox(height: 10),
 
           // Avatar
-          _Avatar(pictures: pokemon.pictures),
+          _Avatar(pokemon: pokemon),
           const SizedBox(height: 20),
 
           // Name
@@ -43,13 +44,14 @@ class PokemonCard extends StatelessWidget {
 
 class _Avatar extends StatelessWidget {
   const _Avatar({
-    required this.pictures,
+    required this.pokemon,
   });
 
-  final List<String> pictures;
+  final Pokemon pokemon;
 
   @override
   Widget build(BuildContext context) {
+    final pictures = pokemon.pictures;
     final screenWidth = MediaQuery.of(context).size.width;
 
     final size = 0.7 * screenWidth;
@@ -61,36 +63,19 @@ class _Avatar extends StatelessWidget {
     return SizedBox(
       width: screenWidth,
       child: Center(
-        child: Container(
-          height: size,
-          width: size,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(borderRadius),
-            color: AppColors.white,
-          ),
-          child: CachedNetworkImage(
-            placeholder: (context, url) => Center(
-              child: SizedBox(
-                height: size / 2,
-                width: size / 2,
-                child: const CircularProgressIndicator(),
+        child: GestureDetector(
+          onTap: () {
+            Navigator.of(context).push(
+              PokemonImagesPage.route(
+                pokemon: pokemon,
               ),
-            ),
-            imageUrl: mainPicture,
-            errorWidget: (context, url, dynamic error) => const Icon(
-              Icons.no_photography_outlined,
-            ),
-            imageBuilder: (context, imageProvider) => DecoratedBox(
-              decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(borderRadius),
-                ),
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: imageProvider,
-                ),
-              ),
-            ),
+            );
+          },
+          child: CachedImg(
+            pictureUrl: mainPicture,
+            borderRadius: borderRadius,
+            height: size,
+            width: size,
           ),
         ),
       ),
