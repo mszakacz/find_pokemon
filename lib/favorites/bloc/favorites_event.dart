@@ -1,12 +1,15 @@
 part of 'favorites_bloc.dart';
 
 @immutable
-abstract class FavoritesEvent {
+abstract class FavoritesEvent extends Equatable {
   const FavoritesEvent();
 }
 
 class FetchFavorites extends FavoritesEvent {
   const FetchFavorites();
+
+  @override
+  List<Object?> get props => [];
 }
 
 class ReorderFavorites extends FavoritesEvent {
@@ -17,4 +20,10 @@ class ReorderFavorites extends FavoritesEvent {
 
   final int oldIndex;
   final int newIndex;
+
+  @override
+  List<Object?> get props => [
+        oldIndex,
+        newIndex,
+      ];
 }
