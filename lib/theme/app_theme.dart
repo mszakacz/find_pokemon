@@ -9,22 +9,30 @@ class AppTheme {
       textTheme: const TextTheme(
         headline1: TextStyle(
           color: AppColors.white,
-          fontSize: 46,
+          fontSize: 24,
           fontWeight: FontWeight.w700,
         ),
         headline2: TextStyle(
           color: AppColors.white,
           fontWeight: FontWeight.w700,
-          fontSize: 26,
+          fontSize: 20,
         ),
         headline3: TextStyle(
           color: AppColors.white,
           fontWeight: FontWeight.w700,
-          fontSize: 20,
+          fontSize: 18,
         ),
         headline4: TextStyle(
           color: AppColors.white,
           fontSize: 16,
+        ),
+        headline5: TextStyle(
+          color: AppColors.white,
+          fontSize: 14,
+        ),
+        headline6: TextStyle(
+          color: AppColors.white,
+          fontSize: 13,
         ),
         bodyText1: TextStyle(
           color: AppColors.white,
@@ -43,6 +51,7 @@ class AppTheme {
           fontSize: 12,
         ),
       ),
+      appBarTheme: const AppBarTheme(backgroundColor: AppColors.darkScaffold),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: AppColors.heavyDark,
       ),
