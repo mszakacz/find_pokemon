@@ -1,7 +1,7 @@
 part of 'pokemon_details_bloc.dart';
 
 @immutable
-abstract class PokemonDetailsEvent {
+abstract class PokemonDetailsEvent extends Equatable {
   const PokemonDetailsEvent();
 }
 
@@ -10,6 +10,11 @@ class FetchPokemonDetails extends PokemonDetailsEvent {
     required this.pokemonName,
   });
   final String pokemonName;
+
+  @override
+  List<Object?> get props => [
+        pokemonName,
+      ];
 }
 
 class AddToFavorite extends PokemonDetailsEvent {
@@ -18,4 +23,9 @@ class AddToFavorite extends PokemonDetailsEvent {
   });
 
   final bool isFavorite;
+
+  @override
+  List<Object?> get props => [
+        isFavorite,
+      ];
 }
