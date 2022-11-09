@@ -56,7 +56,7 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
     final oldIndex = event.oldIndex;
     late int newIndex;
 
-    final pokemons = state.pokemons;
+    final pokemons = state.pokemons.toList();
 
     if (oldIndex < event.newIndex) {
       newIndex = event.newIndex - 1;
