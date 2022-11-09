@@ -120,7 +120,7 @@ class _Stats extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: AppColors.heavyDark,
+        color: AppColors.dark,
       ),
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 15),
@@ -191,7 +191,7 @@ class _PokemonSize extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: AppColors.heavyDark,
+        color: AppColors.dark,
       ),
       child: Container(
         margin: const EdgeInsets.symmetric(
