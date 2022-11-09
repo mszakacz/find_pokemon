@@ -52,10 +52,10 @@ class AppTheme {
         ),
       ),
       appBarTheme: const AppBarTheme(
-        backgroundColor: AppColors.darkScaffold,
+        backgroundColor: AppColors.darkBar,
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        backgroundColor: AppColors.heavyDark,
+        backgroundColor: AppColors.black,
       ),
     );
   }

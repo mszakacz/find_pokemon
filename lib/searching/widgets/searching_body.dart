@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokemon/l10n/l10n.dart';
 import 'package:pokemon/searching/searching.dart';
 import 'package:pokemon/utils/utils.dart';
-import 'package:pokemon/widgets/loading.dart';
+import 'package:pokemon/widgets/widgets.dart';
 
 class SearchingBody extends StatelessWidget {
   const SearchingBody({super.key});
@@ -29,6 +29,8 @@ class SearchingBody extends StatelessWidget {
             return const Loading();
 
           case SearchingStatus.error:
+            return const ErrorView();
+
           case SearchingStatus.display:
             return SearchingList(
               pokemons: state.results,

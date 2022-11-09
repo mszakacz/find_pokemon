@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pokemon/favorites/favorites.dart';
 import 'package:pokemon/l10n/l10n.dart';
 import 'package:pokemon/menu/menu.dart';
 import 'package:pokemon/searching/searching.dart';
@@ -49,7 +50,8 @@ class _Menu extends StatelessWidget {
                 ),
               ],
               currentIndex: selected,
-              selectedItemColor: AppColors.aqua,
+              iconSize: 30,
+              selectedItemColor: AppColors.gold,
               unselectedItemColor: AppColors.white,
               onTap: (index) {
                 context.read<MenuBloc>().add(
@@ -98,14 +100,10 @@ class _MenuBody extends StatelessWidget {
         return const SearchingPage();
 
       case 1:
-        return const Center(
-          child: Text('Favorites'),
-        );
+        return const FavoritesPage();
 
       default:
-        return const Center(
-          child: Text('Favorites'),
-        );
+        return const SearchingPage();
     }
   }
 }

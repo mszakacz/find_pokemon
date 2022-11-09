@@ -68,9 +68,15 @@ class PokemonDetailsBloc
   ) async {
     final isFavorite = event.isFavorite;
     try {
-      await _pokemonsRepository.addPokemonToFavorites(
-        pokemonName: state.pokemon.name,
-      );
+      if (isFavorite) {
+        await _pokemonsRepository.addPokemonToFavorites(
+          pokemonName: state.pokemon.name,
+        );
+      } else {
+        await _pokemonsRepository.removePokemonFromFavorites(
+          pokemonName: state.pokemon.name,
+        );
+      }
 
       emit(
         state.copyWith(

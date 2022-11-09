@@ -34,23 +34,9 @@ class PokemonsRepository {
     return Pokemon.fromData(data);
   }
 
-  /// returns the list of favorite pokemons
-  Future<List<Pokemon>> getFavorites() async {
-    final pokemons = <Pokemon>[];
-
-    final names = _getFavorites();
-
-    for (final name in names) {
-      final pokemon = await getPokemon(name: name);
-      pokemons.add(pokemon);
-    }
-
-    return pokemons;
-  }
-
   /// add pokemon to favorites
   Future<void> addPokemonToFavorites({required String pokemonName}) async {
-    final favorites = _getFavorites();
+    final favorites = getFavorites();
     if (!favorites.contains(pokemonName)) {
       favorites.add(pokemonName);
     }
@@ -59,7 +45,7 @@ class PokemonsRepository {
 
   /// remove pokemon from favorites
   Future<void> removePokemonFromFavorites({required String pokemonName}) async {
-    final favorites = _getFavorites();
+    final favorites = getFavorites();
     if (favorites.contains(pokemonName)) {
       favorites.remove(pokemonName);
     }
@@ -72,13 +58,18 @@ class PokemonsRepository {
   }
 
   /// get the list of favorite pokemons names from Device Memory
-  List<String> _getFavorites() {
+  List<String> getFavorites() {
     return _sharedPreferences.getStringList(_favoritesKey) ?? <String>[];
   }
 
   /// is pokemon saved as favorite [bool]
   bool isFavorite({required String pokemonName}) {
-    final favorites = _getFavorites();
+    final favorites = getFavorites();
     return favorites.contains(pokemonName);
+  }
+
+  /// reorder list of favorite pokemons
+  Future<void> reorderFavorites({required List<String> favorites}) async {
+    await _saveFavorites(pokemons: favorites);
   }
 }
