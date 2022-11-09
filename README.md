@@ -8,7 +8,7 @@
 - pokemons searching
 - displaying pokemon pictures, statistics and other details
 - adding pokemon to favorites
-- sorting list of favorites
+- sorting list of favorites (by dragging)
 
 ### Tools / packages:
 - Flutter
