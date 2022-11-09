@@ -99,5 +99,55 @@ void main() {
         ],
       );
     });
+
+    group('ReorderFavorites', () {
+      blocTest<FavoritesBloc, FavoritesState>(
+        'calls repository.reorderFavorites with proper favorites',
+        setUp: () {
+          when(
+            () =>
+                pokemonsRepository.reorderFavorites(favorites: [name1, name2]),
+          ).thenAnswer((_) async {});
+
+          when(
+            () =>
+                pokemonsRepository.reorderFavorites(favorites: [name2, name1]),
+          ).thenAnswer((_) async {});
+
+          when(
+            () => pokemonsRepository.getFavorites(),
+          ).thenAnswer((_) => [name1, name2]);
+        },
+        build: buildBloc,
+        seed: () => const FavoritesState(
+          pokemons: [name2, name1],
+          status: FavoritesStatus.display,
+        ),
+        act: (bloc) => bloc.add(
+          const ReorderFavorites(oldIndex: 0, newIndex: 1),
+        ),
+        expect: () => const [
+          FavoritesState(
+            pokemons: [name2, name1],
+            status: FavoritesStatus.loading,
+          ),
+          FavoritesState(
+            pokemons: [name1, name2],
+            status: FavoritesStatus.display,
+          ),
+        ],
+        verify: (bloc) {
+          verify(
+            () => pokemonsRepository.getFavorites(),
+          ).called(1);
+
+          verify(
+            () => pokemonsRepository.reorderFavorites(
+              favorites: [name2, name1],
+            ),
+          ).called(1);
+        },
+      );
+    });
   });
 }
