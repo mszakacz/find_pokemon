@@ -7,5 +7,13 @@
     "favorites": "Favorites",
     "@favorites": {
         "description": "Favorites"
+    },
+    "typePokemonName": "Type pokemon name",
+    "@typePokemonName": {
+        "description": "Type pokemon name"
+    },
+    "fetchingPokemonsFailed": "Fetching pokemons has been failed",
+    "@fetchingPokemonsFailed": {
+        "description": "Fetching pokemons has been failed"
     }
 }
