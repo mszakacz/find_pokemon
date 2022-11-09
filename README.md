@@ -13,8 +13,9 @@
 - Very good CLI
 - l10n (translations)
 - Serialization (json_annotation)
-- http
+- Http
 - REST API
+- Splash screen and App Logo
 
 
 ### Development info:
