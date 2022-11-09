@@ -19,6 +19,7 @@ class PokemonDetailsBloc
           ),
         ) {
     on<FetchPokemonDetails>(_onFetchPokemonDetails);
+    on<AddToFavorite>(_onAddToFavorite);
   }
 
   final PokemonsRepository _pokemonsRepository;
@@ -33,22 +34,49 @@ class PokemonDetailsBloc
         isFavorite: false,
       ),
     );
+
+    final name = event.pokemonName;
     try {
       final pokemon = await _pokemonsRepository.getPokemon(
-        name: event.pokemonName,
+        name: name,
       );
+
+      final isFavorite = _pokemonsRepository.isFavorite(
+        pokemonName: name,
+      );
+
       emit(
         state.copyWith(
           status: PokemonDetailsStatus.display,
           pokemon: pokemon,
+          isFavorite: isFavorite,
         ),
       );
     } catch (_) {
       emit(
         state.copyWith(
           status: PokemonDetailsStatus.error,
+          isFavorite: false,
         ),
       );
     }
+  }
+
+  Future<void> _onAddToFavorite(
+    AddToFavorite event,
+    Emitter<PokemonDetailsState> emit,
+  ) async {
+    final isFavorite = event.isFavorite;
+    try {
+      await _pokemonsRepository.addPokemonToFavorites(
+        pokemonName: state.pokemon.name,
+      );
+
+      emit(
+        state.copyWith(
+          isFavorite: isFavorite,
+        ),
+      );
+    } catch (_) {}
   }
 }
