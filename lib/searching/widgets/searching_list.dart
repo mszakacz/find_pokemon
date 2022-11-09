@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokemon/pokemon_details/pokemon_details.dart';
 import 'package:pokemon/theme/theme.dart';
 import 'package:pokemon/utils/utils.dart';
 
@@ -43,6 +44,13 @@ class _ListItem extends StatelessWidget {
       ),
       tileColor: AppColors.dark,
       textColor: AppColors.white,
+      onTap: () {
+        Navigator.of(context).push(
+          PokemonDetailsPage.route(
+            pokemonName: pokemonName,
+          ),
+        );
+      },
     );
   }
 }
