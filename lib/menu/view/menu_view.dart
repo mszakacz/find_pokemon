@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokemon/l10n/l10n.dart';
-
 import 'package:pokemon/menu/menu.dart';
+import 'package:pokemon/searching/searching.dart';
 import 'package:pokemon/theme/theme.dart';
 
 class MenuView extends StatelessWidget {
@@ -95,9 +95,7 @@ class _MenuBody extends StatelessWidget {
   Widget build(BuildContext context) {
     switch (menuIndex) {
       case 0:
-        return const Center(
-          child: Text('Searching'),
-        );
+        return const SearchingPage();
 
       case 1:
         return const Center(
