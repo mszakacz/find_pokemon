@@ -50,7 +50,7 @@ class _PokemonDetailsView extends StatelessWidget {
             return const Loading();
 
           case PokemonDetailsStatus.error:
-            return const PokemonErrorView();
+            return const ErrorView();
 
           case PokemonDetailsStatus.display:
             return PokemonCard(
