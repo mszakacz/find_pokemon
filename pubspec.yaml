@@ -10,6 +10,7 @@ dependencies:
   bloc: ^8.0.3
   cached_network_image: ^3.2.2
   carousel_slider: ^4.1.1
+  firebase_core: ^2.1.1
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
