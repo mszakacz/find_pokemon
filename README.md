@@ -25,7 +25,8 @@ Web App is available at [this link](https://find-pokemon-72d09.web.app)
 - Serialization (json_annotation)
 - Http
 - REST API
-- Splash screen and App Logo
+- App Splash screen
+- App Launcher Icon
 - Saving data in device memory
 - unit tests
 
