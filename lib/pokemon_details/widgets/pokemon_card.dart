@@ -17,26 +17,31 @@ class PokemonCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
-        children: [
-          const SizedBox(height: 10),
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 15),
+        child: Column(
+          children: [
+            const SizedBox(height: 10),
 
-          // Avatar
-          _Avatar(pokemon: pokemon),
-          const SizedBox(height: 20),
+            // Avatar
+            _Avatar(pokemon: pokemon),
+            const SizedBox(height: 20),
 
-          // Name
-          _PokemonName(name: pokemon.name),
-          const SizedBox(height: 20),
+            // Name
+            _PokemonName(name: pokemon.name),
+            const SizedBox(height: 20),
 
-          // Stats
-          _Stats(stats: pokemon.stats),
+            // Stats
+            _Stats(stats: pokemon.stats),
 
-          const SizedBox(height: 20),
+            const SizedBox(height: 20),
 
-          // Pokemon Size
-          _PokemonSize(pokemon: pokemon),
-        ],
+            // Pokemon Size
+            _PokemonSize(pokemon: pokemon),
+
+            const SizedBox(height: 20),
+          ],
+        ),
       ),
     );
   }
