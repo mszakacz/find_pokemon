@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokemon/favorites/favorites.dart';
+import 'package:pokemon/l10n/l10n.dart';
 import 'package:pokemon/pokemon_details/pokemon_details.dart';
 import 'package:pokemon/theme/theme.dart';
 import 'package:pokemon/utils/utils.dart';
@@ -15,25 +16,26 @@ class FavoritesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: ReorderableListView.builder(
-        onReorder: (oldIndex, newIndex) {
-          context.read<FavoritesBloc>().add(
-                ReorderFavorites(
-                  oldIndex: oldIndex,
-                  newIndex: newIndex,
-                ),
-              );
-        },
-        itemCount: pokemons.length,
-        itemBuilder: (context, index) {
-          final pokemon = pokemons[index];
-          return FavoritesListTile(
-            key: ValueKey(pokemon),
-            pokemonName: pokemon,
-          );
-        },
-      ),
+    if (pokemons.isEmpty) {
+      return const NoFavoritePokemons();
+    }
+    return ReorderableListView.builder(
+      onReorder: (oldIndex, newIndex) {
+        context.read<FavoritesBloc>().add(
+              ReorderFavorites(
+                oldIndex: oldIndex,
+                newIndex: newIndex,
+              ),
+            );
+      },
+      itemCount: pokemons.length,
+      itemBuilder: (context, index) {
+        final pokemon = pokemons[index];
+        return FavoritesListTile(
+          key: ValueKey(pokemon),
+          pokemonName: pokemon,
+        );
+      },
     );
   }
 }
@@ -73,6 +75,25 @@ class FavoritesListTile extends StatelessWidget {
               );
         });
       },
+    );
+  }
+}
+
+class NoFavoritePokemons extends StatelessWidget {
+  const NoFavoritePokemons({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = context.l10n;
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 30),
+      child: Center(
+        child: Text(
+          l10n.noFavoritePokemons,
+          style: Theme.of(context).textTheme.headline4,
+          textAlign: TextAlign.center,
+        ),
+      ),
     );
   }
 }
