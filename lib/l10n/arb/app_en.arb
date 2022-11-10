@@ -39,5 +39,9 @@
     "kg": "kg",
     "@kg": {
         "description": "kg - Weight unit"
+    },
+    "noFavoritePokemons": "You have not saved any pokemon as favorite.",
+    "@noFavoritePokemons": {
+        "description": "text shown when there are no pokemon saved as favorites"
     }
 }
