@@ -4,6 +4,7 @@ import 'package:pokemon/theme/theme.dart';
 class AppTheme {
   static ThemeData get dark {
     return ThemeData(
+      fontFamily: 'Nunito',
       scaffoldBackgroundColor: AppColors.darkScaffold,
       useMaterial3: true,
       textTheme: const TextTheme(
