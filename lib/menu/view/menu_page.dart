@@ -6,20 +6,20 @@ import 'package:pokemon/menu/menu.dart';
 import 'package:pokemon/searching/searching.dart';
 import 'package:pokemon/theme/theme.dart';
 
-class MenuView extends StatelessWidget {
-  const MenuView({super.key});
+class MenuPage extends StatelessWidget {
+  const MenuPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => MenuBloc(),
-      child: const _Menu(),
+      child: const MenuView(),
     );
   }
 }
 
-class _Menu extends StatelessWidget {
-  const _Menu();
+class MenuView extends StatelessWidget {
+  const MenuView({super.key});
 
   @override
   Widget build(BuildContext context) {
