@@ -48,7 +48,7 @@ void main() {
         ),
       );
 
-      expect(find.byType(MenuView), findsOneWidget);
+      expect(find.byType(MenuPage), findsOneWidget);
     });
   });
 }

@@ -33,7 +33,7 @@ class AppView extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
       ],
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const MenuView(),
+      home: const MenuPage(),
     );
   }
 }
