@@ -15,23 +15,25 @@ class FavoritesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ReorderableListView.builder(
-      onReorder: (oldIndex, newIndex) {
-        context.read<FavoritesBloc>().add(
-              ReorderFavorites(
-                oldIndex: oldIndex,
-                newIndex: newIndex,
-              ),
-            );
-      },
-      itemCount: pokemons.length,
-      itemBuilder: (context, index) {
-        final pokemon = pokemons[index];
-        return FavoritesListTile(
-          key: ValueKey(pokemon),
-          pokemonName: pokemon,
-        );
-      },
+    return Material(
+      child: ReorderableListView.builder(
+        onReorder: (oldIndex, newIndex) {
+          context.read<FavoritesBloc>().add(
+                ReorderFavorites(
+                  oldIndex: oldIndex,
+                  newIndex: newIndex,
+                ),
+              );
+        },
+        itemCount: pokemons.length,
+        itemBuilder: (context, index) {
+          final pokemon = pokemons[index];
+          return FavoritesListTile(
+            key: ValueKey(pokemon),
+            pokemonName: pokemon,
+          );
+        },
+      ),
     );
   }
 }

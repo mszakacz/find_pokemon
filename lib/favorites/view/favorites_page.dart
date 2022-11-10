@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokemon/favorites/favorites.dart';
-import 'package:pokemon/favorites/widgets/widgets.dart';
 import 'package:pokemon/l10n/l10n.dart';
 import 'package:pokemon/theme/app_colors.dart';
 import 'package:pokemon/widgets/widgets.dart';
@@ -24,14 +23,14 @@ class FavoritesPage extends StatelessWidget {
           backgroundColor: AppColors.darkBar,
           toolbarHeight: 80,
         ),
-        body: const _FavoritesBody(),
+        body: const FavoritesBody(),
       ),
     );
   }
 }
 
-class _FavoritesBody extends StatelessWidget {
-  const _FavoritesBody();
+class FavoritesBody extends StatelessWidget {
+  const FavoritesBody({super.key});
 
   @override
   Widget build(BuildContext context) {
