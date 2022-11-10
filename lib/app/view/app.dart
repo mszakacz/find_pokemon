@@ -16,15 +16,24 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return RepositoryProvider<PokemonsRepository>.value(
       value: _pokemonsRepository,
-      child: MaterialApp(
-        theme: AppTheme.dark,
-        localizationsDelegates: const [
-          AppLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-        ],
-        supportedLocales: AppLocalizations.supportedLocales,
-        home: const MenuView(),
-      ),
+      child: const AppView(),
+    );
+  }
+}
+
+class AppView extends StatelessWidget {
+  const AppView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: AppTheme.dark,
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+      ],
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: const MenuView(),
     );
   }
 }
