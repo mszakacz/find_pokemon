@@ -53,16 +53,29 @@ void main() {
       });
     });
 
-    testWidgets('renders PokemonImagesAppBar', (tester) async {
+    testWidgets('renders PokemonImagesAppBar with correct pokemonName',
+        (tester) async {
       await tester.pumpApp(buildSubject());
 
       expect(find.byType(PokemonImagesAppBar), findsOneWidget);
+
+      final appBar = tester.widget<PokemonImagesAppBar>(
+        find.byType(PokemonImagesAppBar),
+      );
+
+      expect(appBar.pokemonName, pokemon.name);
     });
 
-    testWidgets('renders ImagesSlider', (tester) async {
+    testWidgets('renders ImagesSlider with proper pictures', (tester) async {
       await tester.pumpApp(buildSubject());
 
       expect(find.byType(ImagesSlider), findsOneWidget);
+
+      final imagesSLider = tester.widget<ImagesSlider>(
+        find.byType(ImagesSlider),
+      );
+
+      expect(imagesSLider.pictures, pokemon.pictures);
     });
   });
 }
