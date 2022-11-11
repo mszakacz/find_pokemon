@@ -43,5 +43,9 @@
     "noFavoritePokemons": "You have not saved any pokemon as favorite.",
     "@noFavoritePokemons": {
         "description": "text shown when there are no pokemon saved as favorites"
+    },
+    "noPokemonsFound": "No pokemons found",
+    "@noPokemonsFound": {
+        "description": "text shown when there are no pokemons found in searching"
     }
 }
