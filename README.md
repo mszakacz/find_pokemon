@@ -1,5 +1,7 @@
 # Find Pokemon
 
+Mobile app created with Flutter.
+
 
 
 <img height="500" alt="Screenshot 2022-11-10 at 00 42 39" src="https://user-images.githubusercontent.com/38291070/200965878-065d1838-5675-4a7d-a5d9-debb6db3c7f3.png">     &nbsp;&nbsp;&nbsp;&nbsp;    <img height="500" alt="Screenshot 2022-11-10 at 02 19 24" src="https://user-images.githubusercontent.com/38291070/200976957-3c6a23fe-f1b0-4d9e-adf4-aacaa3c27317.png">
