@@ -42,4 +42,14 @@ App supports very good standards of writing code. Project is divided into 3 laye
 - Domain Layer (Locations Repository)
 - Presentations Layer (widgets + BLoC)
 
-I provided all needed tests: PokemonsApiCLient, api models, PokemonsRepository, repository models, unit tests of the functions, BLoC tests, widget tests
+I provided all needed tests: PokemonsApiCLient, api models, PokemonsRepository, repository models, unit tests of the functions, BLoC tests, widget tests.
+
+
+
+<img width="652" alt="Screenshot 2022-11-11 at 17 41 58" src="https://user-images.githubusercontent.com/38291070/201388271-58cb57dd-150a-43e2-a44d-2a6cbc98f5cc.png">
+
+
+
+
+
+
