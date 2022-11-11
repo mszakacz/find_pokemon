@@ -24,7 +24,7 @@ class PokemonCard extends StatelessWidget {
             const SizedBox(height: 10),
 
             // Avatar
-            _Avatar(pokemon: pokemon),
+            Avatar(pokemon: pokemon),
             const SizedBox(height: 20),
 
             // Name
@@ -47,8 +47,9 @@ class PokemonCard extends StatelessWidget {
   }
 }
 
-class _Avatar extends StatelessWidget {
-  const _Avatar({
+class Avatar extends StatelessWidget {
+  const Avatar({
+    super.key,
     required this.pokemon,
   });
 
