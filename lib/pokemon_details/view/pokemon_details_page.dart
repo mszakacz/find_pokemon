@@ -32,14 +32,14 @@ class PokemonDetailsPage extends StatelessWidget {
         ),
       child: const Scaffold(
         appBar: PokemonDetailsAppBar(),
-        body: _PokemonDetailsView(),
+        body: PokemonDetailsView(),
       ),
     );
   }
 }
 
-class _PokemonDetailsView extends StatelessWidget {
-  const _PokemonDetailsView();
+class PokemonDetailsView extends StatelessWidget {
+  const PokemonDetailsView({super.key});
 
   @override
   Widget build(BuildContext context) {
