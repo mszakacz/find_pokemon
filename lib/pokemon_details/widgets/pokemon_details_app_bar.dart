@@ -16,7 +16,7 @@ class PokemonDetailsAppBar extends StatelessWidget with PreferredSizeWidget {
       ),
       leadingWidth: 80,
       actions: const [
-        _FavoriteIcon(),
+        FavoriteIcon(),
       ],
     );
   }
@@ -25,8 +25,8 @@ class PokemonDetailsAppBar extends StatelessWidget with PreferredSizeWidget {
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
 
-class _FavoriteIcon extends StatelessWidget {
-  const _FavoriteIcon();
+class FavoriteIcon extends StatelessWidget {
+  const FavoriteIcon({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,17 +47,35 @@ class _FavoriteIcon extends StatelessWidget {
                   );
             },
             icon: isFavorite
-                ? const Icon(
-                    Icons.favorite,
-                    color: AppColors.red,
-                  )
-                : const Icon(
-                    Icons.favorite_outline,
-                    color: AppColors.white,
-                  ),
+                ? const PokemonLikedIcon()
+                : const PokemonNotLikedIcon(),
           );
         },
       ),
+    );
+  }
+}
+
+class PokemonLikedIcon extends StatelessWidget {
+  const PokemonLikedIcon({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Icon(
+      Icons.favorite,
+      color: AppColors.red,
+    );
+  }
+}
+
+class PokemonNotLikedIcon extends StatelessWidget {
+  const PokemonNotLikedIcon({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Icon(
+      Icons.favorite_outline,
+      color: AppColors.white,
     );
   }
 }
