@@ -33,6 +33,7 @@ Web App is available at [this link](https://find-pokemon-72d09.web.app)
 - App Launcher Icon
 - Saving data in device memory
 - unit tests
+- widget tests
 
 
 ### Development info:
@@ -41,4 +42,4 @@ App supports very good standards of writing code. Project is divided into 3 laye
 - Domain Layer (Locations Repository)
 - Presentations Layer (widgets + BLoC)
 
-I provided all needed tests: PokemonsApiCLient, api models, PokemonsRepository, repository models, unit tests of the functions, BLoC tests.
+I provided all needed tests: PokemonsApiCLient, api models, PokemonsRepository, repository models, unit tests of the functions, BLoC tests, widget tests
