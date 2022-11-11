@@ -90,5 +90,23 @@ void main() {
 
       expect(find.byType(FavoritesList), findsOneWidget);
     });
+
+    testWidgets(
+        'renders FavoritesList '
+        'with proper pokemons', (tester) async {
+      when(() => favoritesBloc.state).thenReturn(
+        const FavoritesState(
+          pokemons: favorites,
+          status: FavoritesStatus.display,
+        ),
+      );
+      await tester.pumpApp(buildSubject());
+
+      final favoritesList = tester.widget<FavoritesList>(
+        find.byType(FavoritesList),
+      );
+
+      expect(favoritesList.pokemons, favorites);
+    });
   });
 }
