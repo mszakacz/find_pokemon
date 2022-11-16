@@ -44,6 +44,19 @@ App supports very good standards of writing code. Project is divided into 3 laye
 - Domain Layer (Pokemons Repository)
 - Presentations Layer (widgets + BLoC)
 
+Presentation Layer is divider into features folders like:
+- Searching
+- PokemonDetails
+- Favorites
+- PokemonImages
+
+Feature folder contains:
+- BLoC (state management)
+- View (e.g: SearchingPage)
+- Widgets (widgets that are used in this feature)
+
+There are also some general widgets that are used in many features. These are located in lib/widgets.
+
 I provided all needed tests: PokemonsApiCLient, api models, PokemonsRepository, repository models, unit tests of the functions, BLoC tests, widget tests.
 
 
