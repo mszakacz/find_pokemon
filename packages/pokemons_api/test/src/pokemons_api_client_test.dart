@@ -127,11 +127,13 @@ void main() {
         () async {
           final response = MockResponse();
           when(() => response.statusCode).thenReturn(200);
-          when(() => response.body).thenReturn('''
+          when(() => response.body).thenReturn(
+            '''
           {
             'name': $name,
           }
-        '''); // some properties are missing
+        ''',
+          ); // some properties are missing
 
           when(() => mockHttpClient.get(any()))
               .thenAnswer((_) async => response);
@@ -152,7 +154,8 @@ void main() {
         final response = MockResponse();
         when(() => response.statusCode).thenReturn(200);
 
-        when(() => response.body).thenReturn('''
+        when(() => response.body).thenReturn(
+          '''
             {
               "id":$id,
               "name": "$name",
@@ -161,7 +164,8 @@ void main() {
               "weight": $weight,
               "height": $height
             }
-        ''');
+        ''',
+        );
         when(
           () => mockHttpClient.get(any()),
         ).thenAnswer((_) async => response);
@@ -231,11 +235,13 @@ void main() {
         () async {
           final response = MockResponse();
           when(() => response.statusCode).thenReturn(200);
-          when(() => response.body).thenReturn('''
+          when(() => response.body).thenReturn(
+            '''
           {
             'name': $name,
           }
-        '''); // some properties are missing
+        ''',
+          ); // some properties are missing
 
           when(() => mockHttpClient.get(any()))
               .thenAnswer((_) async => response);
@@ -256,7 +262,8 @@ void main() {
         final response = MockResponse();
         when(() => response.statusCode).thenReturn(200);
 
-        when(() => response.body).thenReturn('''
+        when(() => response.body).thenReturn(
+          '''
           {
             "results": [
               {
@@ -265,7 +272,8 @@ void main() {
               }
             ]
           }
-        ''');
+        ''',
+        );
         when(
           () => mockHttpClient.get(any()),
         ).thenAnswer((_) async => response);
