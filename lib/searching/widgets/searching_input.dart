@@ -1,3 +1,4 @@
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokemon/l10n/l10n.dart';
@@ -22,13 +23,10 @@ class SearchingInput extends StatelessWidget {
       ),
       child: TextField(
         controller: controller,
-        onChanged: (input) {
-          context.read<SearchingBloc>().add(
-                FetchPokemons(
-                  phrase: input.toLowerCase(),
-                ),
-              );
-        },
+        onChanged: (input) => _searchingWordEditing(
+          input: input,
+          context: context,
+        ),
         style: Theme.of(context).textTheme.headline3,
         decoration: InputDecoration(
           filled: true,
@@ -68,5 +66,30 @@ class SearchingInput extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _searchingWordEditing({
+    required String input,
+    required BuildContext context,
+  }) {
+    EasyDebounce.debounce(
+      'find_pokemon_debounce',
+      const Duration(milliseconds: 500),
+      () => _findPokemons(
+        input: input,
+        context: context,
+      ),
+    );
+  }
+
+  void _findPokemons({
+    required String input,
+    required BuildContext context,
+  }) {
+    context.read<SearchingBloc>().add(
+          FetchPokemons(
+            phrase: input.toLowerCase(),
+          ),
+        );
   }
 }
