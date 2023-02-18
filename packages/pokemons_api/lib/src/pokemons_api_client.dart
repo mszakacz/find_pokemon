@@ -80,7 +80,7 @@ class PokemonsApiClient {
       final dynamic jsonList =
           (jsonDecode(response.body) as Map<String, dynamic>)['results'];
 
-      for (final json in jsonList) {
+      for (final json in jsonList as List) {
         final result = PokemonSearchingResult.fromJson(
           json as Map<String, dynamic>,
         );
