@@ -34,6 +34,7 @@ Web App is available at [this link](https://find-pokemon-72d09.web.app)
 - App Splash screen
 - App Launcher Icon
 - Saving data in device memory
+- debounce when searching
 - unit tests
 - widget tests
 
